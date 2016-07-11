@@ -12,10 +12,10 @@ class Dataset(models.Model):
     uri, and whether the dataset has a password or not.
     """
 
-    author = models.CharField(max_length=200)
-    title = models.CharField(max_length=50)
-    description = models.TextField()
-    url = models.URLField(max_length=500)
+    author = models.CharField(max_length=200, blank=False)
+    title = models.CharField(max_length=50, blank=False)
+    description = models.TextField(blank=False)
+    url = models.URLField(max_length=500, blank=False)
     dataset_user = models.CharField(max_length=100, blank=True)
     dataset_password = models.CharField(max_length=100, blank=True)
     public_access = models.BooleanField(default=True)

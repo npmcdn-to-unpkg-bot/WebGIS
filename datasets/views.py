@@ -111,8 +111,6 @@ def dataset_create(request):
                 else:
                     raise forms.ValidationError('Check your dataset url, username and password; ' +
                                                 'there seems to be an error')
-        else:
-            raise forms.ValidationError('There seems to be an error.')
     else:
         form = DatasetForm()
     return render(request, 'datasets/dataset_create.html', {'form':form})
@@ -167,8 +165,8 @@ def dataset_update(request, slug, pk):
                 else:
                     raise forms.ValidationError('Check your dataset url, username and password; ' +
                                                 'there seems to be an error')
-        else:
-            raise forms.ValidationError('There seems to be an error.')
+#        else:
+#            raise forms.ValidationError('There seems to be an error.')
     else:
         form = DatasetForm()
     return render(request, 'datasets/dataset_update.html', {'form':form,
