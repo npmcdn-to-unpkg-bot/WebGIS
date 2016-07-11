@@ -58,11 +58,20 @@
           <a class="nav-link text-success font-weight-bold" href="{% url 'datasets:dataset_create' %}">New Map</a>
         </li>
       </ul>
-      <form class="form-inline pull-xs-right" method="POST" action="#">
-        <span>Enter your email to <span class="text-success font-weight-bold">Log In:</span></span>
-        <input class="form-control" name="email" type="text" />
-        {% csrf_token %}
-      </form>
+
+    <!-- Email Sign In Form -->
+      {% if user.is_authenticated %}
+        <p>Logged in as {{ user.email }}</p>
+        <p><a id="id_logout" href="{% url 'logout' % }" >Log out</a></p>
+      {% else %}
+        <form class="form-inline pull-xs-right" method="POST" action="#">
+          <span>Enter your email to <span class="text-success font-weight-bold">Log In:</span></span>
+          <input class="form-control" name="email" type="text" />
+          {% csrf_token %}
+        </form>
+      {% endif %}
+    <!-- end Email Sign In Form -->
+
     </nav>
     <!-- end navbar -->
 

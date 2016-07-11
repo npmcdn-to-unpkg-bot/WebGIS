@@ -20,3 +20,4 @@ class LoginTest(BaseLiveTest):
         body = self.browser.find_element_by_tag_name('body')
         self.assertIn('Check your email', body.text)
 
+
