@@ -50,14 +50,14 @@ INSTALLED_APPS = [
 
     # LOCAL
     'datasets',
+    'accounts',
 ]
 
+AUTH_USER_MODEL = 'accounts.User'
 
-# AUTH_USER_MODEL = 'accounts.User'
-AUTH_USER_MODEL = 'accounts.DatasetUser'
-AUTHENTICATION_BACKENDS = (
-    'accounts.authentication.PasswordlessAuthenticationBackend',
-)
+#AUTHENTICATION_BACKENDS = (
+#    'accounts.authentication.PasswordlessAuthenticationBackend',
+#)
 
 
 MIDDLEWARE_CLASSES = [
