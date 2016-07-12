@@ -60,18 +60,11 @@
       </ul>
 
     <!-- Email Sign In Form -->
-      {% if user.is_authenticated %}
-        <p class="form-inline pull-xs-right">Logged in as 
-          <span class="text-warning font-weight-bold">{{ user.email }}</span>
-        </p>
-        <p class="form-inline pull-xs-right"><a id="id_logout" href="{% url 'accounts:logout' % }" >Log out</a></p>
-      {% else %}
-        <form class="form-inline pull-xs-right" method="POST" action="{% url 'accounts:send_login_email' %}">
-          <span>Enter your email to <span class="text-success font-weight-bold">Log In:</span></span>
-          <input class="form-control" name="email" type="text" />
-          {% csrf_token %}
-        </form>
-      {% endif %}
+      <form class="navbar-form navbar-right" method="POST" action="#">
+        <span>Enter email to log in:</span>
+        <input class="form-control" name="email" type="text" />
+        {% csrf_token %}
+      </form>
     <!-- end Email Sign In Form -->
 
     </nav>
